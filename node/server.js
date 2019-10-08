@@ -2,7 +2,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-
+require("./db")
+const UserModel =  require("./model/user_schema")
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
@@ -28,8 +29,16 @@ app.post("/api",(req,res)=>{
     const feedback = req.body;
     console.log(JSON.stringify(feedback));
     //res.end(JSON.stringify(feedback));
-    feedback.result = "Success";
-    res.json(feedback);
+    
+
+    UserModel.create(req.body,(err,doc)=>{
+        feedback.result = "Success";
+        if(err) feedback.result = "Fail";
+
+        res.json(feedback);
+    });
+
+    
 })
 
 app.listen(3000,()=>{
