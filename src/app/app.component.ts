@@ -13,11 +13,15 @@ export class AppComponent implements OnInit{
 
   }
 
+  onSubmit(data){
+    alert(JSON.stringify(data))
+    this.http.post<any>('http://localhost:3000/api',data).subscribe(result=>{
+      //alert(JSON.stringify(result))
+    })
+  }
+
   ngOnInit(): void {
     //throw new Error("Method not implemented.");
-    let data = { "username":"pok"  }
-    this.http.post<any>('http://localhost:3000/api',data).subscribe(result=>{
-      alert(JSON.stringify(result))
-    })
+  
   }
 }
