@@ -505,6 +505,23 @@
     </a>
   </div>
 
+  <br>
+  <hr>
+  <br>
+<div class="text-left border border-danger">
+  <p>version : {{ version }}</p>
+  <p>isProduction : {{ isProduction }}</p>
+  <p>account : {{ account | json }}</p>
+  <p>{{getResult()}}</p>
+</div>
+
+
+
+ <br>
+  <hr>
+  <br>
+
+
   <form #feedbackForm="ngForm" (submit)="onSubmit(feedbackForm.value)" >
     <div class="form-group">
       <label for="email">Email address</label>
