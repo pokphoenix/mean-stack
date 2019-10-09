@@ -522,6 +522,14 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
+  <br>
+  <hr>
+  <br>
+
+  <ol>
+    <li *ngFor="let item of mDataArray">{{ item.username }} : {{ item.email }} </li>
+  </ol>
+
   <!-- Footer -->
   <footer>
       Love Angular?&nbsp;

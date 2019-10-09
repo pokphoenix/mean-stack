@@ -9,6 +9,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit{
   title = 'mean';
+  mDataArray:any[] = []
+
+
   constructor(private http:HttpClient){
 
   }
@@ -17,11 +20,18 @@ export class AppComponent implements OnInit{
     alert(JSON.stringify(data))
     this.http.post<any>('http://localhost:3000/api',data).subscribe(result=>{
       //alert(JSON.stringify(result))
+      this.getUser();
+    })
+  }
+
+  getUser(){
+    this.http.get<any>("http://localhost:3000/api").subscribe(result=>{
+      this.mDataArray =  result.data;
     })
   }
 
   ngOnInit(): void {
     //throw new Error("Method not implemented.");
-  
+    this.getUser();
   }
 }

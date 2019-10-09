@@ -24,21 +24,30 @@ app.get("/home",(req,res)=>{
     res.end("welcome to home");
 })
 
+app.get("/api",(req,res)=>{
+    let data = { result : true,data : [] };
+
+    UserModel.find((err,doc)=>{
+        if(err){
+            data.result = false;
+        }else{
+            data.data = doc ;
+        } 
+        res.json(data);
+    })
+})
+
 //dynamic API  return all body data
 app.post("/api",(req,res)=>{
     const feedback = req.body;
     console.log(JSON.stringify(feedback));
     //res.end(JSON.stringify(feedback));
-    
-
     UserModel.create(req.body,(err,doc)=>{
         feedback.result = "Success";
         if(err) feedback.result = "Fail";
 
         res.json(feedback);
     });
-
-    
 })
 
 app.listen(3000,()=>{
