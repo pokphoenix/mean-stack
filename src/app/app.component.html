@@ -526,6 +526,13 @@
 <app-page1 #com1 (change)="onChange1($event)" [count]="version"></app-page1>
 <app-page2 #com2 (reset2)="onResetVersion()" [count2]="version"></app-page2>
 
+<br>
+<hr>
+<br>
+<button class="btn btn-primary" (click)="onObservableLoad()" >Observable (Callback)</button>
+<button class="btn btn-warning" (click)="onPromiseLoad()" >PromiseLoad (Callback)</button>
+<button class="btn btn-danger" (click)="onPromiseMultipleLoad()" >PromiseMultipleLoad (Multiple)</button>
+<button class="btn btn-light" (click)="onAsyncAwaitLoad()" >Promise (Async-Await)</button>
 
  <br>
   <hr>
