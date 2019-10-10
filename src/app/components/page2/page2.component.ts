@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class Page2Component implements OnInit {
   @Input("count2") count =0;
-  @Output("reset2") reset = new EventEmitter<void>()    // void  = no return to parent   
+  @Output("reset2") reset = new EventEmitter<void>()    // void  = no return to parent
   constructor() { }
 
   ngOnInit() {

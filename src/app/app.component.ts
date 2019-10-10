@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Page1Component } from './components/page1/page1.component';
+import { Page2Component } from './components/page2/page2.component';
 
 
 @Component({
@@ -22,6 +24,13 @@ export class AppComponent implements OnInit{
 
 
   time1 = 0;
+
+  @ViewChild("com1",{static:false}) com1:Page1Component;
+  @ViewChild("com2",{static:false}) com2:Page2Component;
+  
+  ngOnInit(): void {
+    this.getUser();
+  }
 
 
   constructor(private http:HttpClient){
@@ -51,7 +60,9 @@ export class AppComponent implements OnInit{
     this.version = 0;
   }
 
-  ngOnInit(): void {
-    this.getUser();
+  onClickViewChild(){ // this method for change variable in child
+    this.com1.count = 10;
+    this.com1.change.emit(1000);
+    this.com2.reset.emit();
   }
 }

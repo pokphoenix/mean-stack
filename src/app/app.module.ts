@@ -14,7 +14,7 @@ import { Page2Component } from './components/page2/page2.component';
   declarations: [
     AppComponent,
     Page1Component,
-    Page2Component
+    Page2Component,
   ],
   imports: [
     BrowserModule,

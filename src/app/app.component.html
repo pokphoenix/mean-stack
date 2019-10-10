@@ -509,6 +509,7 @@
   <hr>
   <br>
 <div class="text-left border border-danger">
+  <p>title : {{ title }}</p>
   <p>version : {{ version }}</p>
   <p>isProduction : {{ isProduction }}</p>
   <p>account : {{ account | json }}</p>
@@ -520,8 +521,9 @@
 <br>
 <h3>Component</h3>
 <button (click)="onClick()" >Click</button>
-<app-page1 (change)="onChange1($event)" [count]="version"></app-page1>
-<app-page2 (reset2)="onResetVersion()" [count2]="version"></app-page2>
+<button (click)="onClickViewChild()" >ClickViewChild</button>
+<app-page1 #com1 (change)="onChange1($event)" [count]="version"></app-page1>
+<app-page2 #com2 (reset2)="onResetVersion()" [count2]="version"></app-page2>
 
 
  <br>
