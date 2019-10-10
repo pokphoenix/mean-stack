@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-page2',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class Page2Component implements OnInit {
   @Input("count2") count =0;
   @Output("reset2") reset = new EventEmitter<void>()    // void  = no return to parent
-  constructor() { }
+  constructor(private shared:SharedService) { }
 
   ngOnInit() {
   }
@@ -17,4 +18,7 @@ export class Page2Component implements OnInit {
     this.reset.emit();
   }
 
+  onClickLogout(){
+    this.shared.logout();
+  }
 }

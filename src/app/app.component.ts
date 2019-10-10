@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Page1Component } from './components/page1/page1.component';
 import { Page2Component } from './components/page2/page2.component';
+import { SharedService } from './services/shared.service';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class AppComponent implements OnInit{
   }
 
 
-  constructor(private http:HttpClient){
+  constructor(private http:HttpClient,private shared:SharedService){
 
   }
 
