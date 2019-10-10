@@ -513,8 +513,15 @@
   <p>isProduction : {{ isProduction }}</p>
   <p>account : {{ account | json }}</p>
   <p>{{getResult()}}</p>
+  <p>time1 : {{time1}}</p>
 </div>
-
+<br>
+<hr>
+<br>
+<h3>Component</h3>
+<button (click)="onClick()" >Click</button>
+<app-page1 (change)="onChange1($event)" [count]="version"></app-page1>
+<app-page2 (reset2)="onResetVersion()" [count2]="version"></app-page2>
 
 
  <br>

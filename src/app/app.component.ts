@@ -21,6 +21,9 @@ export class AppComponent implements OnInit{
   }
 
 
+  time1 = 0;
+
+
   constructor(private http:HttpClient){
 
   }
@@ -30,11 +33,22 @@ export class AppComponent implements OnInit{
       this.getUser();
     })
   }
-
+  
+  onChange1(event){
+    this.time1 = event;
+  }
+   
   getUser(){
     this.http.get<any>("http://localhost:3000/api").subscribe(result=>{
       this.mDataArray =  result.data;
     })
+  }
+
+  onClick(){
+    this.version++;
+  }
+  onResetVersion(){
+    this.version = 0;
   }
 
   ngOnInit(): void {
