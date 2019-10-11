@@ -102,7 +102,7 @@ export class AppComponent implements OnInit{
 
     let result2 = await this.http.get("https://jsonplaceholder.typicode.com/todos/2").toPromise()
     alert(JSON.stringify(result2))
-
+    
     let result3 = await this.http.get("https://jsonplaceholder.typicode.com/todos/3").toPromise()
     alert(JSON.stringify(result3))
   }

@@ -1,3 +1,7 @@
 <p>com2 works! {{ count }}</p>
 <button (click)="onClickReset()" >reset</button>
-<button (click)="onClickLogout()" >Click Logout {{shared.getStatus()}}</button>
+<button (click)="onClickLogout()" class="btn" [class.btn-success]="shared.getStatus()" [attr.role]="shared.getStatus()" >Click Logout {{shared.getStatus()}}</button>
+<label>
+    <input type="checkbox" (click)="onClickToggleLogin()"  [checked]="shared.getStatus()" > 
+    login 
+</label>

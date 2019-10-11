@@ -21,4 +21,13 @@ export class Page2Component implements OnInit {
   onClickLogout(){
     this.shared.logout();
   }
+
+  onClickToggleLogin(){
+    if(this.shared.getStatus()){
+      this.shared.logout();
+    }else{
+      this.shared.login();
+    }
+  }
+
 }
